@@ -10,10 +10,10 @@ int old_precision = cout.precision(); // save previous precision setting
 
 // function to generate and retrun mesh points along x.
 double * getX() {
-    const int n = 100;             // number of intervals along x
     double min_x = 0.0E0;          // lower limit of x
     double max_x = 1.0E0;          // upper limit of x
-    static double  x[101];         // array to hold calculated x values (n+1)
+    static double  x[101];         // array to hold calculated x values (100 intervals = 101 boundary points)
+    int n = 100;                   // number of intervals
     double h = (max_x - min_x)/n;  // size of intervals along x
     for(int i=0; i<n+1; i++){
         x[i] = i * h;
