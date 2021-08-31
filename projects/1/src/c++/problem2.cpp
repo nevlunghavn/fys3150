@@ -27,7 +27,7 @@ double u(double x){
 }
 
 int main () {
-    ofstream outFile("x_u.dat");
+    ofstream outFile("../data/x_u.dat");
 
     // set output format both for standard output and file output
     std::cout.precision(5);
