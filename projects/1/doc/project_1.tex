@@ -101,7 +101,6 @@ we wish to show that
 is a solution. Differentiating~\ref{eq:poisson_sol} twice
  
 \begin{align*}
-    %u(x) &= 1 - (1 - e^{-10}) x - e^{-10x}\\
     \frac{du}{dx} &= (1 - e^{-10}) x - e^{-10x}\\
     \Rightarrow -\frac{d^2u}{dx^2} &= 100 e^{-10x}\\
     &= f(x)\\
@@ -113,17 +112,27 @@ is a solution. Differentiating~\ref{eq:poisson_sol} twice
 \begin{figure}%[h!]
     \centering %Centers the figure
     \includegraphics[scale=0.55]{../img/problem2-fig-x-u.pdf} %Imports the figure.
-    \caption{Equation~\ref{eq:poisson_sol} is evalated at a descrete set of points shown in red. 
-    The blue line has no significance and is only a visual aid.}
+    \caption{Equation~\ref{eq:poisson_sol} is evalated 
+        at a descrete set of points shown in red. 
+        The blue line has no significance and is only a visual aid.}
     \label{fig:problem2-fig-x-u}
 \end{figure}
 \begin{list}{}{}
-    \item[$\bullet$] The C++ program \texttt{problem2.cpp} in the github repository is a basic
-          program consisting of three functions: a function to generate and return
-          the $x$ array, a function to evaluate equation~\ref{eq:poisson_sol} at each $x$ value and return 
-          the $u(x)$ array and the main function which calls the former and writes the results to a file.
-    \item[$\bullet$] The Python program \texttt{problem2.py} in the github repository is used
-          to read the data file produced by the C++ program and plot the data using \texttt{matplotlib}.
+    \item[$\bullet$] The C++ program \texttt{problem2.cpp} 
+        in the github repository is a basic
+        program consisting of three functions: a function 
+        to generate and return
+        the $x$ array, a function to evaluate 
+        equation~\ref{eq:poisson_sol} at each 
+        $x$ value and return 
+        the $u(x)$ array and the main function which 
+        calls the former and writes the results to a file.
+        The range of $x$ values is set to $x \in [0,1]$ as
+        specified in the introduction.
+    \item[$\bullet$] The Python program \texttt{problem2.py} 
+        in the github repository is used
+          to read the data file produced by the C++ 
+          program and plot the data using \texttt{matplotlib}.
           The resuling plot is shown in figure~\ref{fig:problem2-fig-x-u}.  
 \end{list}
 
