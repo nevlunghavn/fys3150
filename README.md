@@ -27,10 +27,9 @@
 │           │   └── x_u.dat
 │           └── python
 │               └── problem2.py
-├── README.md
-└── tree.txt
+└── README.md
 
-10 directories, 15 files
+10 directories, 14 files
 ```
 
 10 directories, 36 files
