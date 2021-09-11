@@ -1,3 +1,5 @@
+RM = rm -f
+
 all: compile link run
 
 compile:
@@ -8,3 +10,6 @@ link:
 
 run:
 	./problem2
+
+clean:
+	${RM} *.o

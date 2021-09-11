@@ -1,3 +1,8 @@
+'''
+FYS3150, project 1, problem 2
+plots u(x) values from file and saves figure to PDF file.
+u(x) is an analytic solution of -u"(x) = 100 exp(-10x) 
+'''
 from os import read
 import numpy as np
 import matplotlib

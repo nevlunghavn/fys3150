@@ -1,3 +1,9 @@
+/**
+ * FYS3150, project 1, problem 2
+ * calculates u(x) for a set of points x and writes x, u(x) to file.
+ * u(x) is an analytic solution of -u"(x) = 100 exp(-10x) 
+ **/
+
 #include <iostream> 
 #include <fstream> // needed for file i/o
 #include <math.h>  // needed for exponential function definition
@@ -52,9 +58,8 @@ int main () {
     return 0;
 }
 
+
 /**
  * references:
  * 1. "Introduction to C++", https://anderkve.github.io/FYS3150/book/introduction_to_cpp/intro.html
- * 2. "Formatting Numbers with C++ Output Streams", David Kieras, EECS Dept., Univ. of Michigan
- * 3. scientific notation: https://www.cplusplus.com/reference/ios/scientific/
 **/
