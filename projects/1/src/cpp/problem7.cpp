@@ -68,6 +68,7 @@ double v[11];
 v[0] = 0;
 v[n+1] = 0;
 
+// forward substitution
 // first and last elements of g are known
 double g[11];
 g[1] = h*h*f(x[1]) + v[0];
@@ -88,12 +89,10 @@ for(int i=10;i>=1;i-=1){
     v[i] = (gt[i] - c[i]*v[i+1])/bt[i];
 }
 
-
-    int count = 1;
+    outFile << "x           v(x)" << endl;
+    outFile << "=======================" << endl;
     for ( int i = 0; i < n+1; i++ ) {
-        cout << count << "   [" << i << "]" << v[i] << endl;
-        count++;
-        
+        outFile <<  x[i] << " " << v[i] <<endl;
     }
 
 

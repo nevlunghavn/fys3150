@@ -1,33 +1,47 @@
 # FYS3150 Project 1
 
 This directory contains the C++ and Python code as well as the generated data,
-LaTeX documentation and other utilities for the first FYS3150 project
+and other utilities for the first FYS3150 project
 
 ## Directroy structure
 ```
-.
 ├── img
-│   ├── problem2-fig-x-u.pdf
-│   └── rel_err.pdf
+│   └── problem2-fig-x-u.pdf
 ├── README.md
 └── src
-    ├── c++
+    ├── cpp
     │   ├── makefile
     │   ├── problem2
-    │   └── problem2.cpp
+    │   ├── problem2.cpp
+    │   ├── problem7
+    │   └── problem7.cpp
     ├── data
+    │   ├── poisson.dat
     │   └── x_u.dat
     └── python
         └── problem2.py
 
 ```
-## Compilation and running
+## Compilation and linking
 
-C++ code is compiled and run using the make command in the C++ directory. This creates 
-data output files in the data directory
+* cd src/cpp
+* make
 
-Python code is run using the command 
-python problem2.py in the python directory. 
-This reads data from the data directory and produces 
-plots and store them as PDF files in the img directory.
+## Running the CPP programs
+
+* cd src/cpp
+* ./problem2
+* ./problem7
+
+These commands will produce the two data files in the data directory.
+
+## Running the Python programs
+
+* cd src/python
+* python3 problem2.py
+
+This command will read the data file from the 
+data directory, generate a plot and store it as a PDF 
+file in the img directory.
+
 
