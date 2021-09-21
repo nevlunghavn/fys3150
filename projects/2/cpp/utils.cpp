@@ -78,6 +78,9 @@ arma::mat create_symmetric_tridiagonal(int n, double a, double d)
   return create_tridiagonal(n, a, d, a);
 }
 
+// Determine the the max off-diagonal element of a symmetric matrix A
+// - Saves the matrix element indicies to k and l 
+// - Returns absolute value of A(k,l) as the function return value
 double max_offdiag_symmetric(const arma::mat& A, int& k, int &l){
     for(int i=0;i<(int)A.n_rows;i++){
         for (int j=i+1;j<(int)A.n_cols;j++){
@@ -91,40 +94,19 @@ double max_offdiag_symmetric(const arma::mat& A, int& k, int &l){
     return A.at(k,l);
 }
 
+// Performs a single Jacobi rotation, to "rotate away"
+// the off-diagonal element at A(k,l).
+// - Assumes symmetric matrix, so we only consider k < l
+// - Modifies the input matrices A and R
+void jacobi_rotate(arma::mat& A, arma::mat& R, int k, int l);
 
-// // Create a tridiagonal matrix tridiag(a,d,e) of size n*n, 
-// // from scalar input a, d, and e. That is, create a matrix where
-// // - all n-1 elements on the subdiagonal have value a
-// // - all n elements on the diagonal have value d
-// // - all n-1 elements on the superdiagonal have value e
-// arma::mat create_tridiagonal(int n, double a, double d, double e)
-// {
-//   // Start from identity matrix
-//   arma::mat A = arma::mat(n, n, arma::fill::eye) * d;
-
-//   // Fill the first row (row index 0), e.g.
-//   //A(0,0) = d;
-//   A(0,1) = e;
-
-//   // Loop that fills rows 2 to n-1 (row indices 1 to n-2)
-//   for (i=1;i<n-1;i++){
-//     A(i,i-1) = a;
-//     //A(i,i) = d;
-//     A(i,i+1) = e;
-//   }
-
-//   // Fill last row (row index n-1)
-//   A(n-1,n-2) = a;
-//   //A(n-1,n-1) = d;
-
-
-//   return A;
-// }
-
-// // Create a symmetric tridiagonal matrix tridiag(a,d,a) of size n*n
-// // from scalar input a and d.
-// arma::mat create_symmetric_tridiagonal(int n, double a, double d)
-// {
-//   // Call create_tridiagonal and return the result
-//   return create_tridiagonal(n, a, d, a);
-// }
+// Jacobi method eigensolver:
+// - Runs jacobo_rotate until max off-diagonal element < eps
+// - Writes the eigenvalues as entries in the vector "eigenvalues"
+// - Writes the eigenvectors as columns in the matrix "eigenvectors"
+//   (The returned eigenvalues and eigenvectors are sorted using arma::sort_index)
+// - Stops if it the number of iterations reaches "maxiter"
+// - Writes the number of iterations to the integer "iterations"
+// - Sets the bool reference "converged" to true if convergence was reached before hitting maxiter
+void jacobi_eigensolver(const arma::mat& A, double eps, arma::vec& eigenvalues, arma::mat& eigenvectors, 
+                        const int maxiter, int& iterations, bool& converged);
