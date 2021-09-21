@@ -30,6 +30,7 @@ int main(){
   cout << "The matix A = " << endl;
   cout << endl;
   cout << A << endl;
+  cout << endl;
 
   cout << endl;
   cout << "The analytical eigenvalues of A are: " << endl;
@@ -38,9 +39,6 @@ int main(){
   for(double elem : L){
     cout << scientific_format(elem) << endl;
   }
-
-
-
   // vector to hold eigenvalues
   vec eigval;
   // matrix to hold eigenvectors
@@ -54,79 +52,83 @@ int main(){
   for (double elem : eigval){
     cout << scientific_format(elem) << endl;
   }
+
+  cout << endl;
+  cout << "The relative error in the eigenvalues abs((analytic-Armadillo)/analytic):" << endl;
+  cout << endl;
+  for(int i = 0; i<6; i++){
+    cout << scientific_format(std::abs((L[i]-eigval[i])/L[i])) << endl;
+  }
+  cout << endl;
+
+
+
+
+
+
+
+
+
+
   cout << endl;
   cout << "The corresponding eigenvectors using Armadillo are:" << endl;
   cout << endl;
   cout << eigvec << endl;
-
-//test{
-std::vector<double> V = bb_eigenvec(6,2);
-for(double elem : V){
-  cout << scientific_format(elem) << endl;
+for(int i = 0; i<36; i++){
+  cout<< eigvec[i] << endl;
 }
+  
+
+
+
+
+  // for(int i=0;i<6;i++){
+  //   for(int j=0;j<6;j++){
+  //     cout << scientific_format (eigvec[i]);
+  //   }
+  // cout << endl;
+  // }
+
+std::vector<double> V = bb_eigenvec(6,2);
+// for(double elem : V){
+//   cout << scientific_format(elem) << endl;
+// }
 std::vector<double> V_normal = normalize_vec(V);
 for(double elem : V_normal){
   cout << scientific_format(elem) << endl;
 }
-//test}
-//   // mat A(4, 5, fill::randu);
-//   // mat B(4, 5, fill::randu);
-  
-//   // cout << A << endl;
-//   // cout << B << endl;
-//   // cout << A.t() << endl;
-//   // cout << A*B.t() << endl;
-  
 
-//   // // Print results
-//   // std::cout << std::endl;
-//   // std::cout << "a number: " << scientific_format(0.556443) << std::endl;
-//   // std::cout << "another number: " << scientific_format(56434676) << std::endl;
+//create a 6x6 matrix B from the normalized analytical 
+//eigenvectors of A
 
-// // h = 1/n = 1/7 => h2 = h^2 = 1/49 
-// const double h2 = 1.0/49.0;
-// const double a = -1/h2;
-// const double d = 2/h2;
-// const double e = a;
-// mat M = create_tridiagonal(6, a, d, 3.14);
-// cout << M << endl;
-// mat L = create_symmetric_tridiagonal(6, a, d);
-// cout << L << endl;
-// // mat M = create_tridiagonal(6, a, d, e);
-// // mat L = create_symmetric_tridiagonal(6, a, d);
+std::vector<std::vector<double>> B;
+for(int i=1;i<7;i++){
+  B.push_back(normalize_vec(bb_eigenvec(6,i)));
+}
 
 
+//print B
 
-// test bb_eigen_val
+cout<<endl;
+cout << "Eigenvectors relative error abs((analytic - Armadillo)/analytic):" << endl;
+cout<<endl;
+for(int i=0;i<6;i++){
+  for(int j=0;j<6;j++){
+    //cout << scientific_format (std::abs( (B[i][j] - eigvec[i][j])/B[i][j] ));
+    cout << scientific_format (B[i][j]);
+  }
+  cout << endl;
+}
+cout<<endl;
 
-//std::vector<double> L = bb_eigen_val(6,a,d);
-//cout << L[0] << endl;
+cout<< B[0][0]<<endl;
 
-  // for (int i=0;i<5;i++){
-  //   cout << L[i] << endl;
-  // }
-
-//double arr[6] =  bb_eigen_val(a,d);
-
-//cout << d + 2.0*a*std::cos(2*PI/(6+1)) << endl;
-//cout << arr[0] << endl;
-
-// std::vector<double> LL;
-// for(int i=1; i<7; i++){
-//   LL.push_back(d + 2.0*a*std::cos((double)i*PI/(6+1)));
-// }
-//LL.push_back(d + 2.0*a*std::cos(2*PI/(6+1)));
-// cout << LL.size() << endl;
-// cout << LL[0] << endl;
-
-
-
-
-
-
-
-
-
+cout<<endl;
+cout<< "Eigenvalues relative error abs((analytic - Armadillo)/analytic): " << endl;
+cout<<endl;
+for(int i = 0;i<(int)eigval.size();i++){
+  cout << scientific_format(std::abs((L[i]-eigval[i])/L[i])) << endl;
+}
 
 
 
@@ -140,4 +142,4 @@ for(double elem : V_normal){
 
 /************************************************/
   return 0;
-}
+}//:~main()

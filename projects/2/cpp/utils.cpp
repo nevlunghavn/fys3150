@@ -78,6 +78,20 @@ arma::mat create_symmetric_tridiagonal(int n, double a, double d)
   return create_tridiagonal(n, a, d, a);
 }
 
+double max_offdiag_symmetric(const arma::mat& A, int& k, int &l){
+    for(int i=0;i<(int)A.n_rows;i++){
+        for (int j=i+1;j<(int)A.n_cols;j++){
+            if(std::abs(A.at(i,j)) > std::abs(A.at(k,l))){
+                k = i;
+                l = j;
+            }
+        }
+    }
+
+    return A.at(k,l);
+}
+
+
 // // Create a tridiagonal matrix tridiag(a,d,e) of size n*n, 
 // // from scalar input a, d, and e. That is, create a matrix where
 // // - all n-1 elements on the subdiagonal have value a

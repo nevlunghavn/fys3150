@@ -39,6 +39,7 @@ std::string scientific_format(const arma::vec& v, const int width=20, const int 
 arma::mat create_tridiagonal(const arma::vec& a, const arma::vec& d, const arma::vec& e);
 arma::mat create_tridiagonal(int n, double a, double d, double e);
 arma::mat create_symmetric_tridiagonal(int n, double a, double d);
+double max_offdiag_symmetric(const arma::mat& A, int& k, int &l);
 
 
 

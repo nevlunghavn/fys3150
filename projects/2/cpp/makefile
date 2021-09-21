@@ -22,6 +22,7 @@ link:
 	# $(CC) -o $(EXEC) *.o -O$(OPTIMIZATION_LEVEL) -l$(LDLIBS)  
 	$(CC) -o main main.o utils.o -O$(OPTIMIZATION_LEVEL) -l$(LDLIBS)  
 	$(CC) -o problem3 problem3.o utils.o project2.o -O$(OPTIMIZATION_LEVEL) -l$(LDLIBS)  
+	$(CC) -o problem4 problem4.o utils.o project2.o -O$(OPTIMIZATION_LEVEL) -l$(LDLIBS)  
                           
 clean:
 	${RM} $(O_FILES) core
