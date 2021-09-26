@@ -24,10 +24,14 @@ int main(){
 // my machine epsilon is 
 const double my_machine_epsilon = 2.220446049250313e-16;
 // set the tolerance. Smaller numbers are considered to be equal to zero.
-const double tol = my_machine_epsilon * 1e15 ;
+const double tol = my_machine_epsilon * 1e8 ;
 cout << "Tolerance = " << tol << endl << endl;
 // dimension of our square symmetric matrix
-const double N = 6;
+// a quick-and-dirtry loop to run the program for a set of N values
+// for problem 5 we keep N to 6
+for(int N=6; N<7; N++){
+
+
 // set a maximum number of iterations so we don't go on forever
 // using N^3 like in the course texbook
 const double max_iterations = N*N*N;
@@ -185,11 +189,13 @@ while (std::abs(A.at(k,l)) > tol && iterations < max_iterations) {
     iterations = iterations + 1;
 }//end while
 
-cout << "After " << iterations << " iterations: " << endl << endl;
+cout << "N = " << N << " " << "number of iterations = " << iterations << endl << endl;
 cout << endl;
 cout << "Matrix R = " << endl;
 cout << R << endl<<endl;
 
+
+}
 
 /****/
 return 0;
