@@ -1,3 +1,7 @@
+/**
+ * project 2, problem 4
+ */ 
+
 #include <iostream>
 #include <armadillo>
 #include "utils.hpp"
@@ -26,7 +30,8 @@ int l=1;
 
 double largest = max_offdiag_symmetric(A,k,l);
 
-cout << "Largest (in absolute value) superdiagonal element of A is: A["<< k << "][" << l <<"] = " << largest << endl << endl;
+cout << "Largest (in absolute value) superdiagonal element of A is: A[k][l] = A[";
+cout << k << "][" << l <<"] = " << largest << endl << endl;
 /****/
 return 0;
 }//:~main()

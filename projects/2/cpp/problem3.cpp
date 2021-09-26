@@ -16,8 +16,13 @@ int main(){
   // define the constants
   // N = n - 1 => n = N + 1
   // N = 6 => n = 7
-  // h = 1/n = 1/7 => h2 = h^2 = 1/49 
-  const double h2 = 1.0E0/4.9E1;
+  // h = 1/n = 1/7 => h2 = h^2 = 1/49
+  const int N = 6;
+  int n = N + 1;
+  double h = 1.0/(double)n;
+
+  //const double h2 = 1.0E0/4.9E1;
+  const double h2 = h*h;
   const double a = -1/h2;
   const double d = 2/h2;
   //const double e = a;
