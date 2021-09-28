@@ -22,7 +22,7 @@ const double tol = my_machine_epsilon * 1e8 ;
 // dimension of our square symmetric matrix
 // a quick-and-dirtry loop to run the program for a set of N values
 // for problem 5 we keep N to 6
-for(int N=4; N<101; N++){
+for(int N=6; N<7; N++){
 
 
     // Generate random N*N matrix
