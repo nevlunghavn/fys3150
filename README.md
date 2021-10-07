@@ -3,6 +3,7 @@
 ## Directory structure
 
 ```
+
 .
 ├── LICENSE
 ├── projects
